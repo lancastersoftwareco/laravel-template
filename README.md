@@ -1,3 +1,17 @@
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/lancastersoftwareco/logo/main/brandmark/green.svg" width="100"></a></p>
+
+## Laravel Template
+
+This template is a slightly improved (in our opinion) version of a fresh Laravel project configured with Jetstream (authentication), Vue 3 (Inertia), and Tailwind CSS.
+
+[Jetstream](https://jetstream.laravel.com/) is already set up to give your users a robust authentication system, sans teams.
+
+[Vue 3](https://v3.vuejs.org/) is set up to be compiled using [Vite](https://vitejs.dev/) for lightning-fast compilation times, and is connected to Laravel using [Inertia](https://inertiajs.com/).
+
+[Tailwind CSS](https://tailwindcss.com/) is compiled using their [JIT compiler](https://github.com/tailwindlabs/tailwindcss-jit) so you get small development builds and amazing performance during development and in production.
+
+To get started developing, run `npm run dev` to boot up the dev server (a requirement in local development for now, we're looking to fix this). To get a production build to deploy, run `npm run build`.
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
