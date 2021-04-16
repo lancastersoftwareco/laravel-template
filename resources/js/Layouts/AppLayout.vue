@@ -23,63 +23,7 @@
                             </div>
                         </div>
 
-                        <div class="hidden sm:flex sm:items-center sm:ml-6">
-                            <!-- Settings Dropdown -->
-                            <div class="ml-3 relative">
-                                <Menu>
-                                    <MenuButton v-if="$page.props.jetstream.managesProfilePhotos" class="flex text-sm rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white focus-visible:ring-green-500 transition">
-                                        <img class="h-8 w-8 rounded-full object-cover" :src="$page.props.user.profile_photo_url" :alt="$page.props.user.name" />
-                                    </MenuButton>
-                                    <MenuButton v-else class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 transition">
-                                        {{ $page.props.user.name }}
-
-                                        <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                        </svg>
-                                    </MenuButton>
-
-                                    <MenuItems class="bg-white absolute z-50 mt-2 rounded-md shadow-lg w-48 origin-top-right right-0 rounded-md ring-1 ring-black ring-opacity-5 outline-none">
-                                        <div class="block px-4 py-2 text-xs text-gray-400">
-                                            Manage Account
-                                        </div>
-
-                                        <MenuItem v-slot="{ active }">
-                                            <inertia-link :href="route('profile.show')" :class="[
-                                                active ? 'bg-gray-100 outline-none' : '',
-                                                'block px-4 py-2 text-sm leading-5 text-gray-700 transition',
-                                            ]">
-                                                Profile
-                                            </inertia-link>
-                                        </MenuItem>
-
-                                        <MenuItem v-slot="{ active }" v-if="$page.props.jetstream.hasApiFeatures">
-                                            <inertia-link :href="route('api-tokens.index')" :class="[
-                                                active ? 'bg-gray-100 outline-none' : '',
-                                                'block px-4 py-2 text-sm leading-5 text-gray-700 transition',
-                                            ]">
-                                                API Tokens
-                                            </inertia-link>
-                                        </MenuItem>
-
-                                        <div class="border-t border-gray-100"></div>
-
-                                        <form @submit.prevent="logout">
-                                            <MenuItem v-slot="{ active }">
-                                                <button type="submit" :class="[
-                                                    active ? 'bg-gray-100 outline-none' : '',
-                                                    'block w-full px-4 py-2 text-sm leading-5 text-gray-700 text-left transition',
-                                                ]">
-                                                    Log Out
-                                                </button>
-                                            </MenuItem>
-                                        </form>
-                                    </MenuItems>
-                                </Menu>
-                            </div>
-                        </div>
-
-                        <!-- Hamburger -->
-                        <div class="-mr-2 flex items-center sm:hidden">
+                        <div class="-mr-2 flex items-center">
                             <div class="relative">
                                 <Menu>
                                     <MenuButton v-slot="{ open }" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">
@@ -142,10 +86,9 @@
                                                     </inertia-link>
                                                 </MenuItem>
 
-                                                <!-- Authentication -->
-                                                <form method="POST" @submit.prevent="logout">
+                                                <form @submit.prevent="logout">
                                                     <MenuItem v-slot="{ active }">
-                                                        <button :class="[
+                                                        <button @click="logout" :class="[
                                                             'w-full text-left',
                                                             active
                                                             ? 'block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 text-gray-800 bg-gray-50 border-gray-300 transition'
@@ -181,11 +124,11 @@
 </template>
 
 <script>
-    import JetApplicationMark from '@/Jetstream/ApplicationMark'
-    import JetBanner from '@/Jetstream/Banner'
-    import JetDropdown from '@/Jetstream/Dropdown'
-    import JetNavLink from '@/Jetstream/NavLink'
-    import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink'
+    import JetApplicationMark from '../Jetstream/ApplicationMark.vue'
+    import JetBanner from '../Jetstream/Banner.vue'
+    import JetDropdown from '../Jetstream/Dropdown.vue'
+    import JetNavLink from '../Jetstream/NavLink.vue'
+    import JetResponsiveNavLink from '../Jetstream/ResponsiveNavLink.vue'
     import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 
     export default {

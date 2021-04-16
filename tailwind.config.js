@@ -12,19 +12,8 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                sans: ['Inter var', ...defaultTheme.fontFamily.sans],
             },
-        },
-    },
-
-    variants: {
-        extend: {
-            opacity: ['disabled'],
-            ringColor: ['focus-visible'],
-            ringWidth: ['focus-visible'],
-            ringOffsetColor: ['focus-visible'],
-            ringOffsetWidth: ['focus-visible'],
-            ringOpacity: ['focus-visible'],
         },
     },
 

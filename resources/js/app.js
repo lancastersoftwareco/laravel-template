@@ -1,4 +1,8 @@
-require('./bootstrap');
+import 'vite/dynamic-import-polyfill';
+
+import '../css/app.css';
+
+import './bootstrap';
 
 // Import modules...
 import { createApp, h } from 'vue';
@@ -7,11 +11,15 @@ import { InertiaProgress } from '@inertiajs/progress';
 
 const el = document.getElementById('app');
 
+const pages = import.meta.globEager('./Pages/**/*.vue');
+
 createApp({
     render: () =>
         h(InertiaApp, {
             initialPage: JSON.parse(el.dataset.page),
-            resolveComponent: (name) => require(`./Pages/${name}`).default,
+            resolveComponent: name => {
+                return pages[`./Pages/${name}.vue`].default;
+            },
         }),
 })
     .mixin({ methods: { route } })
