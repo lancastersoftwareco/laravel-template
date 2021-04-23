@@ -12,6 +12,17 @@ This template is a slightly improved (in our opinion) version of a fresh Laravel
 
 To get started developing, run `npm run dev` to boot up the dev server (a requirement in local development for now, we're looking to fix this). To get a production build to deploy, run `npm run build`.
 
+To run the project within Docker, run this command to install the environment and then refer to the docs for [Laravel Sail](https://laravel.com/docs/8.x/sail).
+
+```bash
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v $(pwd):/opt \
+    -w /opt \
+    laravelsail/php80-composer:latest \
+    composer install --ignore-platform-reqs
+```
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
